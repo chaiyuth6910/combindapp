@@ -16,7 +16,11 @@ import { PaymentPage } from '../pages/payment/payment';
 import { PortfolioPage } from '../pages/portfolio/portfolio';
 import { SchedulePage } from '../pages/schedule/schedule';
 import { SettingPage } from '../pages/setting/setting';
-
+import { RegisterPage } from '../pages/register/register';
+import { LoginPage } from '../pages/login/login';
+import { WebapiServiceProvider } from '../providers/webapi-service/webapi-service';
+import { HttpModule } from '@angular/http';
+import { GlobalProvider } from '../providers/global/global';
 @NgModule({
   declarations: [
     MyApp,
@@ -29,11 +33,17 @@ import { SettingPage } from '../pages/setting/setting';
     PaymentPage,
     PortfolioPage,
     SchedulePage,
-    SettingPage
+    SettingPage,
+    RegisterPage,
+    LoginPage,
+ 
+
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpModule,
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -47,12 +57,17 @@ import { SettingPage } from '../pages/setting/setting';
     PaymentPage,
     PortfolioPage,
     SchedulePage,
-    SettingPage
+    SettingPage,
+    RegisterPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    WebapiServiceProvider,
+    GlobalProvider
+    
   ]
 })
 export class AppModule {}

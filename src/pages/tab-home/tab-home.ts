@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,App } from 'ionic-angular';
+import { RegisterPage } from '../register/register';
 
 /**
  * Generated class for the TabHomePage page.
@@ -15,11 +16,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TabHomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public app: App) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TabHomePage');
   }
-
+  register() {
+    //this.navCtrl.push(RegisterPage);
+    this.app.getRootNav().push(RegisterPage);
+  }
 }
